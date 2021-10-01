@@ -1,5 +1,4 @@
 #!/usr/bin/env bashio
-set -e
 
 CONFIG="/data/rtlamr2mqtt.yaml"
 
@@ -67,5 +66,4 @@ for meter in $(bashio::config 'meters|keys'); do
 done
     
 bashio::log.info "Starting rtlamr2mqtt server..."
-exec /usr/bin/rtlamr2mqtt.py \
-    "${CONFIG}"
+exec /usr/bin/rtlamr2mqtt.py /data/rtlamr2mqtt.yaml
