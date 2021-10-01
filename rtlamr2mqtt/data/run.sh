@@ -13,8 +13,7 @@ for general in $(bashio::config 'general|keys'); do
   {
       echo "general:"
       echo "  sleep_for: ${SLEEP_FOR}"
-      echo "  mode: ${MODE}"
-      echo "  debug: ${DEBUG}"
+      echo "  verbosity: debug"
   } > "${CONFIG}"
 done
 
@@ -67,5 +66,6 @@ done
     
 bashio::log.info "Starting rtlamr2mqtt server..."
 exec /usr/bin/rtlamr2mqtt.py \
+    /etc/rtlamr2mqtt.yaml \
     -4 -f -d --no-pid \
     < /dev/null
