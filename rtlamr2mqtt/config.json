@@ -51,7 +51,7 @@
     ]
   },
   "schema": {
-    "general": [
+    "generals": [
       {
         "sleep_for": "int",
         "mode": "str",
