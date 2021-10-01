@@ -20,7 +20,7 @@
         "armv7",
         "i386"
     ],
-    "image": "irakhlin/rtlamr2mqtt:ha-addon"
+    "image": "irakhlin/rtlamr2mqtt:ha-addon",
     "services": ["mqtt:need"],
     "options": {
         "general": [
