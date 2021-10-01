@@ -40,7 +40,7 @@ for rtl in $(bashio::config 'rtls|keys'); do
   RTL_TCP=$(bashio::config "rtls[${rtl}].rtltcp")
   RTL_AMR=$(bashio::config "rtls[${rtl}].rtlamr")
   {
-      echo "rtl:"
+      echo "custom_parameters:"
       echo "  rtltcp: \"${RTL_TCP}\""
       echo "  rtlamr: \"${RTL_AMR}\""
   } >> "${CONFIG}"
