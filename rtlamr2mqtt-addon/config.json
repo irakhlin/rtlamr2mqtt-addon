@@ -20,6 +20,7 @@
         "armv7",
         "i386"
     ],
+    "image": "irakhlin/rtlamr2mqtt:ha-addon"
     "services": ["mqtt:need"],
     "options": {
         "general": [
@@ -33,8 +34,8 @@
           {
             "host": "hassio.local",
             "port": 1883,
-            "user": "",
-            "password": "",
+            "user": "user",
+            "password": "password",
             "ha_autodiscovery": true,
             "ha_autodiscovery_topic": "homeassistant"
           }
@@ -53,6 +54,41 @@
             "format": "####.###",
             "unit_of_measurement": "m³",
             "icon": "mdi:gas_canister"
+          }
+        ]
+    },
+    "schema": {
+        "general": [
+          {
+            "sleep_for": "int",
+            "mode": "str",
+            "debug": "bool"
+          }
+        ],
+        "mqtt": [
+          {
+            "host": "str",
+            "port": "int",
+            "user": "str",
+            "password": "str",
+            "ha_autodiscovery": "bool",
+            "ha_autodiscovery_topic": "str"
+          }
+        ],
+        "rtl": [
+          {
+            "rtltcp": "str",
+            "rtlamr": "str"
+          }
+        ],
+        "meters": [
+          {
+            "id": "int",
+            "protocol": "str",
+            "name": "str",
+            "format": "str",
+            "unit_of_measurement": "str",
+            "icon": "str"
           }
         ]
     }
