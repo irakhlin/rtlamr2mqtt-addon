@@ -1,7 +1,7 @@
 #!/usr/bin/env bashio
 set -e
 
-CONFIG="/etc/rtlamr2mqtt.yaml"
+CONFIG="/data/rtlamr2mqtt.yaml"
 
 bashio::log.info "Creating rtlamr2mqtt configuration..."
 
@@ -20,13 +20,13 @@ for general in $(bashio::config 'general|keys'); do
 done
 
 bashio::log.info "Writing MQTT config"
-for mqtt in $(bashio::config 'mqtt|keys'); do
-  MQTT_HOST=$(bashio::config "mqtt[${mqtt}].host")
-  MQTT_PORT=$(bashio::config "mqtt[${mqtt}].port")
-  MQTT_USER=$(bashio::config "mqtt[${mqtt}].user")
-  MQTT_PASSWORD=$(bashio::config "mqtt[${mqtt}].password")
-  MQTT_DISCOVERY=$(bashio::config "mqtt[${mqtt}].ha_autodiscovery")
-  MQTT_TOPIC=$(bashio::config "mqtt[${mqtt}].ha_autodiscovery_topic")
+for mqtt in $(bashio::config 'mqtts|keys'); do
+  MQTT_HOST=$(bashio::config "mqtts[${mqtt}].host")
+  MQTT_PORT=$(bashio::config "mqtts[${mqtt}].port")
+  MQTT_USER=$(bashio::config "mqtts[${mqtt}].user")
+  MQTT_PASSWORD=$(bashio::config "mqtts[${mqtt}].password")
+  MQTT_DISCOVERY=$(bashio::config "mqtts[${mqtt}].ha_autodiscovery")
+  MQTT_TOPIC=$(bashio::config "mqtts[${mqtt}].ha_autodiscovery_topic")
   {
       echo "mqtt:"
       echo "  host: ${MQTT_HOST}"
@@ -38,9 +38,9 @@ for mqtt in $(bashio::config 'mqtt|keys'); do
   } >> "${CONFIG}"
 done
 
-for rtl in $(bashio::config 'rtl|keys'); do
-  RTL_TCP=$(bashio::config "rtl[${rtl}].rtltcp")
-  RTL_AMR=$(bashio::config "rtl[${rtl}].rtltcp")
+for rtl in $(bashio::config 'rtls|keys'); do
+  RTL_TCP=$(bashio::config "rtls[${rtl}].rtltcp")
+  RTL_AMR=$(bashio::config "rtls[${rtl}].rtlamr")
   {
       echo "rtl:"
       echo "  rtltcp: \"${RTL_TCP}\""
